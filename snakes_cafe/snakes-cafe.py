@@ -19,7 +19,7 @@ snakes_cafe_menu = [
 ]
 
 
-def user_order():
+def user_order(): 
 
     match_element = []
 
@@ -45,7 +45,7 @@ def user_order():
         user_input = input("\n enter your order:\n> ").upper()
         if user_input in match_element:
             print("\n ------ you just order {} ------".format(user_input))
-        elif user_input not in match_element:
+        elif user_input not in match_element and user_input != "QUIT":
             print("\n ------ please enter an exist order ------")
 
 
