@@ -20,30 +20,33 @@ snakes_cafe_menu = [
 
 
 def user_order():
+
     match_element = []
+
     print("""
     Welcome to the Snakes Cafe!
     Please see our menu below.
 
     To quit at any time, type "quit"
     """)
+
     for i in range(len(snakes_cafe_menu)):
         menu_type = snakes_cafe_menu[i]
         for item in menu_type:
-            print("\n#*** {} ***#".format(item.upper()))
+            print("\n# *** {} *** #".format(item.upper()))
             menu_element = snakes_cafe_menu[i][item]
             for element in menu_element:
-                match_element.append(element.upper())
                 print("- {} ".format(element))
-    user_input = input("\n enter your order:\n> ").upper()
-    process = True
-    while process:
+                match_element.append(element.upper())
+
+    user_input = ""
+
+    while user_input != "QUIT":
+        user_input = input("\n enter your order:\n> ").upper()
         if user_input in match_element:
             print("\n ------ you just order {} ------".format(user_input))
         elif user_input not in match_element:
             print("\n ------ please enter an exist order ------")
-        elif user_input == "QUIT":
-            process = False
 
 
 user_order()
