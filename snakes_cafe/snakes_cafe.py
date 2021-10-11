@@ -1,4 +1,4 @@
-"use strict"
+
 # pylint: disable=missing-module-docstring
 # pylint: disable=invalid-name
 # pylint: disable=missing-function-docstring
@@ -19,7 +19,7 @@ snakes_cafe_menu = [
 ]
 
 
-def user_order(): 
+def user_order():
 
     match_element = []
 
@@ -44,9 +44,9 @@ def user_order():
     while user_input != "QUIT":
         user_input = input("\n enter your order:\n> ").upper()
         if user_input in match_element:
-            print("\n ------ you just order {} ------".format(user_input))
+            print("\n ------ you just order {} ------".format(user_input.lower()))
         elif user_input not in match_element and user_input != "QUIT":
             print("\n ------ please enter an exist order ------")
 
-
-user_order()
+if __name__ == "__main__":
+    user_order()
