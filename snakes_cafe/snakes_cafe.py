@@ -24,29 +24,38 @@ def user_order():
     match_element = []
 
     print("""
-    Welcome to the Snakes Cafe!
-    Please see our menu below.
-
-    To quit at any time, type "quit"
+**************************************
+**    Welcome to the Snakes Cafe!   **
+**    Please see our menu below.    **
+**
+** To quit at any time, type "quit" **
+**************************************
     """)
 
     for i in range(len(snakes_cafe_menu)):
         menu_type = snakes_cafe_menu[i]
         for item in menu_type:
-            print("\n# *** {} *** #".format(item.upper()))
+            print("\n {} \n  ------ ".format(item))
             menu_element = snakes_cafe_menu[i][item]
             for element in menu_element:
-                print("- {} ".format(element))
-                match_element.append(element.upper())
-
+                print("{}".format(element))
+                match_element.append(element)
+    # print(str(match_element))
     user_input = ""
+    user_orders = []
+    while user_input != "quit":
+        user_input = input('''\n ***********************************
+** What would you like to order? **
+***********************************
+> ''').lower()
+        for i in range(len(match_element)):
+            comparasen = match_element[i]
+            if user_input == f'{comparasen}'.lower():
+                user_orders.append(match_element[i])
+                counter = user_orders.count(match_element[i])
+                print(
+                    "\n ** {} order of {} have been added to your meal **".format(counter, match_element[i]))
 
-    while user_input != "QUIT":
-        user_input = input("\n enter your order:\n> ").upper()
-        if user_input in match_element:
-            print("\n ------ you just order {} ------".format(user_input.lower()))
-        elif user_input not in match_element and user_input != "QUIT":
-            print("\n ------ please enter an exist order ------")
 
 if __name__ == "__main__":
     user_order()
